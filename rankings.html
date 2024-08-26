@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Portal - Player Rankings</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.rankings-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1ca7b9;
+
+}
+
+/* Ranking table styling */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.ranking-table th, .ranking-table td {
+    padding: 12px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+.ranking-table th {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+.ranking-table tbody tr:nth-child(odd) {
+    background-color: #2a2a2a;
+}
+
+.ranking-table tbody tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+.ranking-table tbody tr:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="rankings-wrapper">
+        <header class="header">
+            <h1>Player Rankings</h1>
+            <a href="index.html" class="btn">Home</a>
+            <a href="friends_stats.html" class="btn"> Friends & Stats</a>
+            <a href="rankings.html" class="btn">Player Rankings</a>
+        </header>
+
+        <section class="ranking-section">
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player Name</th>
+                        <th>BR Ranked Booyahs</th>
+                        <th>CS Ranked Booyahs</th>
+                    </tr>
+                </thead>
+                <tbody id="ranking-table-body">
+                    <!-- JavaScript will dynamically insert rows here -->
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Free Fire Portal. All Rights Reserved. <br>Sheri.in Design @ +92-3486233198 </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Sample data for rankings
+const rankingsData = [
+    { name: "Player1", brBooyahs: 50, csBooyahs: 45 },
+    { name: "Player2", brBooyahs: 70, csBooyahs: 30 },
+    { name: "Player3", brBooyahs: 65, csBooyahs: 55 },
+    { name: "Player4", brBooyahs: 40, csBooyahs: 60 },
+    { name: "Player5", brBooyahs: 75, csBooyahs: 65 },
+    // Add more players as needed
+];
+
+// Function to sort and display rankings
+function displayRankings() {
+    const tableBody = document.getElementById('ranking-table-body');
+
+    // Sort players by their BR Ranked Booyahs first, then CS Ranked Booyahs
+    const sortedRankings = rankingsData.sort((a, b) => {
+        if (b.brBooyahs === a.brBooyahs) {
+            return b.csBooyahs - a.csBooyahs;
+        }
+        return b.brBooyahs - a.brBooyahs;
+    });
+
+    // Generate table rows dynamically
+    sortedRankings.forEach((player, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${player.name}</td>
+            <td>${player.brBooyahs}</td>
+            <td>${player.csBooyahs}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+// Call the function to display rankings on page load
+displayRankings();
+
+    </script>
+</body>
+</html>

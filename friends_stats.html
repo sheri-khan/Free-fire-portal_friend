@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Portal - Friends & Stats</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stats-wrapper">
+        <header class="header">
+            <h1>Friends & Stats Management</h1>
+            <a href="index.html" class="btn">Home</a>
+            <a href="friends_stats.html" class="btn"> Friends & Stats</a>
+            <a href="rankings.html" class="btn">Player Rankings</a>
+        </header>
+
+        <section class="friends-section">
+            <h2>Your Friends</h2>
+            <div class="friend-card" onclick="showDetails('id1')">
+                <img src="img/Free_2.jpeg" alt="Friend's Lobby">
+                <h3>Rockey$++</h3>
+            </div>
+            <div class="friend-card" onclick="showDetails('id2')">
+                <img src="img/Free_3.jpeg" alt="Friend's Lobby">
+                <h3>#_Kashi`</h3>
+            </div>
+            <!-- Add more friends as needed -->
+        </section>
+
+        <section class="details-section" id="details-section">
+            <h2>Details</h2>
+            <div id="details-container">
+                <!-- Details will be loaded here dynamically -->
+            </div>
+        </section>
+
+        <section class="qa-section">
+            <h2>Q&A</h2>
+            <div class="qa-item">
+                <h3>How to improve your gameplay?</h3>
+                <p>Practice makes perfect. Focus on your aiming skills and map knowledge.</p>
+            </div>
+            <div class="qa-item">
+                <h3>What are the best weapons?</h3>
+                <p>Some of the best weapons in Free Fire include the MP40, M1014, and the AK.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Free Fire Portal. All Rights Reserved. <br>Sheri.in Design @ +92-3486233198 </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
